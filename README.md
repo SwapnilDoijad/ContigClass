@@ -1,6 +1,4 @@
 # ChroPlas
-
-## Introduction
 ChroPlas is a tool to identify contigs as chromosome, plasmid, chromids, and other elements, based on the key genes. This repository contains scripts and data for this classification process.
 
 ## Installation
@@ -36,11 +34,8 @@ Usage: ./ChroPlas.sh -i <input_folder> -o <output_folder>
 ./ChroPlas.sh -i test_data/ -o results/
 ```
 
-## Test Data
-Test data is available in the `test_data/` directory. Example files include:
-- `14C2.gff3`
-- `BRA5.gff3`
-- `GCF_000379605.1.gff3`
+---
 
-## License
-This project is licensed under the [License Name]. See the LICENSE file for details.
+🧑‍💻 Author Swapnil Doijad (swapnil.doijad@gmail.com) GitHub: @SwapnilDoijad
+
+🙋 Support If you encounter bugs or have feature requests, please open an issue.
