@@ -43,7 +43,7 @@ To install and set up ChroPlas, follow these steps:
 
 ## Usage
 ```bash
-Usage: ./ChroPlas.sh
+Usage: ./ChroPlas.sh --help
 
 ### Options:
 -i, --input-folder <input_folder>: Specify the input folder containing GFF files.
