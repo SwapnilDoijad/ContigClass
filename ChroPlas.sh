@@ -31,15 +31,31 @@ if [ -z "$input_folder" ] || [ -z "$output_folder" ]; then
 fi
 
 # Create output directory if it doesn't exist
-mkdir -p "$output_folder"
+mkdir -p "$output_folder/tmp"
 
-source 	source chroPlas_env/bin/activate
+source chroPlas_env/bin/activate
 # Process files in the input folder
-for i in $(ls "$input_folder"); do 
-  echo "Processing $i"
-  for key in $(cat scripts/keys.txt); do
-    echo "Processing key $key"
-	python scripts/contig_stats.py -i "$input_folder/$i" -o "$output_folder/contig_stats_$i.tsv"
-  done
+for file in $(ls $input_folder/); do
+	file_id=$(basename "$file" | sed -E 's/\.(gff3?|GFF3?)$//')
+	echo "Processing file: $file_id"
+
+	python scripts/get_fasta_length_GC.py \
+	-i "$input_folder/$file" \
+	-o "$output_folder/tmp/$file_id.contig_stats.tsv"
+
+	bash scripts/process_keys.sh \
+	"$input_folder"/"$file" \
+	"$output_folder"/tmp/"$file_id".keys.tsv
+
+	python scripts/convert_maker_counts.py \
+	-i "$output_folder"/tmp/"$file_id".keys.tsv \
+	-o "$output_folder"/tmp/"$file_id".maker_counts.tsv
+
+	python scripts/combine_outputs.py \
+	-d "$output_folder/tmp" \
+	-f "$file_id" \
+	-o "$output_folder/$file_id.combined_stats.tsv"
 
 done
+deactivate
+

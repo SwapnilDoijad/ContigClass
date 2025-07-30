@@ -1,1 +1,5 @@
+## plasmid_marker_gene
+plasmid partitioning protein
 conjug
+## chromosomal_marker_gene
+ribosomal RNA
