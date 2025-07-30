@@ -55,7 +55,6 @@ Usage: ./ChroPlas.sh --help
 ### Example:
 ./ChroPlas.sh -i test_data/ -o results/
 
-
 ---
 🧑‍💻 Author Swapnil Doijad (swapnil.doijad@gmail.com)
 🙋 Support If you encounter bugs or have feature requests, please open an issue.
