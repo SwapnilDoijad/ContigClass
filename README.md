@@ -3,7 +3,7 @@ ChroPlas is a tool to classify contigs as chromosome, plasmid, chromids, and oth
 
 After bacterial genome assembly, it is crucial to classify the contigs into different categories such as chromosome, plasmid, chromids, phages, transposons, translocatable units, and other elements. While there are tools that classify contigs to plasmids and phages, no tool is available to classify chromosomes, megaplasmids, chromids, transposons, translocatable units, and other elements. 
 
-ChroPlas makes use of length of contigs and key annotations and classifies contigs (see below). 
+ChroPlas makes use of length of contigs and key annotations and classifies contigs (see below for definitions). 
 
 Note: the current version classify transposons, translocatable units, and other elements as "unknown". I plan to add support for these categories in future versions.
 
