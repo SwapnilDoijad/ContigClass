@@ -10,6 +10,9 @@ def combine_outputs(directory, file_id, output_file):
     # Read the keys file
     keys_df = pd.read_csv(keys_file, sep='\t', header=None, names=['contig_id', 'count', 'marker_type', 'gene'])
 
+    # Replace underscores with spaces in the 'gene' column
+    keys_df['gene'] = keys_df['gene'].str.replace('_', ' ')
+
     # Pivot the keys file to count occurrences of each gene type
     gene_counts = keys_df.pivot_table(index='contig_id', columns='gene', values='count', aggfunc='sum', fill_value=0)
 
@@ -28,20 +31,30 @@ def combine_outputs(directory, file_id, output_file):
     # Ensure all counts are integers
     combined_df = combined_df.astype({col: 'int' for col in gene_counts.columns})
 
-    # Updated classification logic to prioritize chromosomal_contig
+    # Read the keys.tsv file to dynamically define classification rules
+    keys_path = os.path.join(os.path.dirname(__file__), 'keys.tsv')
+    keys_df = pd.read_csv(keys_path, sep='\t')
+
     def classify_contig(row):
-        if row['length'] < 2000000 and row.get('ribosomal_RNA', 0) > 0:
-            return 'chromosomal_contig'
-        elif (2000000 < row['length'] < 10000000) or row.get('ribosomal_RNA', 0) > 0:
-            return 'chromosome'
-        elif row['length'] < 350000 and (row.get('plasmid_partitioning_protein', 0) > 0 or row.get('conjug', 0) > 0):
-            return 'plasmid'
-        elif 350000 < row['length'] < 2000000 and (row.get('plasmid_partitioning_protein', 0) > 0 or row.get('conjug', 0) > 0):
-            return 'megaplasmid'
-        elif 350000 < row['length'] < 2000000 and row.get('conjug', 0) == 0:
-            return 'chromid'
-        else:
-            return 'unknown'
+        for _, key_row in keys_df.iterrows():
+            min_size = key_row['min_size(Mb)'] * 1e6
+            max_size = key_row['max_size(Mb)'] * 1e6
+
+            # Check size range first
+            if not (min_size <= row['length'] <= max_size):
+                continue
+
+            must_present = key_row['key_genes_must_present'].split(',') if pd.notna(key_row['key_genes_must_present']) and key_row['key_genes_must_present'].strip() else []
+            must_absent = key_row['key_genes_must_absent'].split(',') if pd.notna(key_row['key_genes_must_absent']) and key_row['key_genes_must_absent'].strip() else []
+
+            # Check presence and absence of genes
+            if (not must_present or any(row.get(gene.strip(), 0) > 0 for gene in must_present)) and \
+               (not must_absent or all(row.get(gene.strip(), 0) == 0 for gene in must_absent)):
+                print(f"Contig {row['contig_id']} classified as {key_row['class']} based on rule: MinSize={min_size}, MaxSize={max_size}, MustPresent={must_present}, MustAbsent={must_absent}")
+                return key_row['class']
+
+        print(f"Contig {row['contig_id']} classified as unknown: Did not meet any classification rules")
+        return 'unknown'
 
     combined_df['class'] = combined_df.apply(classify_contig, axis=1)
 

@@ -10,12 +10,12 @@ def main(input_file, output_file):
     grouped = df.groupby(["contig", "marker_type"])["count"].sum().unstack(fill_value=0)
 
     # Ensure both marker types are present
-    for col in ["plasmid_marker_gene", "chromosomal_marker_gene"]:
+    for col in ["plasmid", "chromosome"]:
         if col not in grouped.columns:
             grouped[col] = 0
 
     # Reorder columns
-    grouped = grouped[["plasmid_marker_gene", "chromosomal_marker_gene"]]
+    grouped = grouped[["plasmid", "chromosome"]]
 
     # Write to output file
     grouped.to_csv(output_file, sep="\t")

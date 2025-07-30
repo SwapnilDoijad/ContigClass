@@ -1,6 +1,6 @@
-contig	plasmid_marker_gene	chromosomal_marker_gene
-contig_1	2	9
+contig	plasmid	chromosome
+contig_1	3	12
 contig_2	2	0
 contig_3	5	0
 contig_4	2	0
-contig_5	7	0
+contig_5	6	0
