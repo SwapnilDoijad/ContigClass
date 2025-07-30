@@ -7,7 +7,7 @@ ChroPlas makes use of length of contigs and key annotations and classifies conti
 
 Note: the current version classify transposons, translocatable units, and other elements as "unknown". I plan to add support for these categories in future versions.
 
-**Definition of classes**(based on [The Divided Bacterial Genome: Structure, Function, and Evolution](https://journals.asm.org/doi/10.1128/mmbr.00019-17))
+**Definition of classes** (based on [The Divided Bacterial Genome: Structure, Function, and Evolution](https://journals.asm.org/doi/10.1128/mmbr.00019-17))
 
 <div align="center">
   <img src="scripts/zmr0031724670001.jpeg" alt="Contig Classification" width="400" height="425">
