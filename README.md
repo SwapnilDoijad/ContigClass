@@ -48,9 +48,9 @@ To use ChroPlas, run the main script `ChroPlas.sh` with the following options:
 Usage: ./ChroPlas.shalso 
 
 ### Options:
-- `-i`, `--input-folder` `<input_folder>`: Specify the input folder containing GFF files.
-- `-o`, `--output-folder` `<output_folder>`: Specify the output folder where results will be stored.
-- `-h`, `--help`: Display the help message and exit.
+- -i, --input-folder <input_folder>: Specify the input folder containing GFF files.
+- -o, --output-folder <output_folder>: Specify the output folder where results will be stored.
+- -h, --help: Display the help message and exit.
 
 ### Example:
 ```bash
