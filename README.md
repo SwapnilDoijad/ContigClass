@@ -42,10 +42,8 @@ To install and set up ChroPlas, follow these steps:
    ```
 
 ## Usage
-To use ChroPlas, run the main script `ChroPlas.sh` with the following options:
-
 ```bash
-Usage: ./ChroPlas.shalso 
+Usage: ./ChroPlas.sh
 
 ### Options:
 -i, --input-folder <input_folder>: Specify the input folder containing GFF files.
