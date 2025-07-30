@@ -57,7 +57,5 @@ Usage: ./ChroPlas.sh --help
 
 
 ---
-
-🧑‍💻 Author Swapnil Doijad (swapnil.doijad@gmail.com) GitHub: @SwapnilDoijad
-
+🧑‍💻 Author Swapnil Doijad (swapnil.doijad@gmail.com)
 🙋 Support If you encounter bugs or have feature requests, please open an issue.
