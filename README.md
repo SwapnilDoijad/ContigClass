@@ -62,7 +62,9 @@ Usage: ./ChroPlas.sh --help
 
 ### Results
 
-<embed src="test_results/N161.results.pdf" width="800px" height="600px" />
+<div align="center">
+  <img src="scripts/results.png" alt="Contig Classification" width="400" height="425">
+</div>
 
 ---
 🧑‍💻 Author: Swapnil Doijad (swapnil.doijad@gmail.com)  
