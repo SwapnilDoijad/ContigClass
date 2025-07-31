@@ -59,8 +59,10 @@ Usage: ./ChroPlas.sh --help
 ### Example:
 ./ChroPlas.sh -i test_data/ -o results/
 ```
-
+---
 ### Results
+
+<iframe src="test_results/stats/GCF_012927355.1.combined_stats.tsv" width="100%" height="400"></iframe>
 
 <div align="center">
   <img src="scripts/results.png" alt="Contig Classification" width="400" height="425">
