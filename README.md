@@ -10,7 +10,7 @@ Note: the current version classify transposons, translocatable units, and other 
 **Definition of classes** (based on [The Divided Bacterial Genome: Structure, Function, and Evolution](https://journals.asm.org/doi/10.1128/mmbr.00019-17))
 
 <div align="center">
-  <img src="scripts/zmr0031724670001.jpeg" alt="Contig Classification" width="400" height="425">
+  <img src="scripts/flowchart.jpeg">
 </div>
 
 **chromosome:** contig >2 Mb and less than 10 Mb and/or carry chromosomal marker genes (ribosomal RNA)  
