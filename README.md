@@ -13,6 +13,7 @@ Note: the current version classify transposons, translocatable units, and other 
   <img src="scripts/flowchart.png" alt="Contig Classification Flowchart" width="700" height="600">
 </div>
 
+
 **chromosome:** contig >2 Mb and less than 10 Mb and/or carry chromosomal marker genes (ribosomal RNA)  
 **chromosomal_contig:** contig less than 2 Mb and carry chromosomal marker genes (ribosomal RNA)  
 **plasmid:** contig <0.35 Mb and carry plasmid marker genes (partitioning protein and/or conjugation genes)  
