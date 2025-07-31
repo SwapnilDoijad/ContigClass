@@ -65,6 +65,7 @@ After running the script, you will find the following files in the specified out
 
    $output-folder/stats/$gff_id.combined_stats.tsv
 
+|  |  |  |    |     |                   | plasmid | plasmid | plasmid | plasmid | chromosome | chromosome | chromosome | chromosome | chromosome |
 | file_id | contig_id | features | length   | GC    | class                  | plasmid_partitioning_protein | Conjugal_transfer_protein | conjugative_transfer | plasmid_replication_protein | DNA-directed_RNA_polymerase_subunit_beta | recombinase_RecA | DNA_topoisomerase | ribosomal_RNA | chromosomal_replication_initiator_protein |
 |---------|-----------|----------|----------|-------|------------------------|------------------------------|---------------------------|----------------------|-----------------------------|------------------------------------------|------------------|-------------------|---------------|------------------------------------------|
 | Y2_17   | contig_1  | 4316     | 4377227  | 61.73 | chromosome             | 0                            | 0                         | 0                    | 0                           | 6                                        | 3                | 12                | 4             | 2                                        |
