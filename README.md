@@ -62,7 +62,11 @@ Usage: ./ChroPlas.sh --help
 ---
 ### Results
 
-<iframe src="test_results/stats/GCF_012927355.1.combined_stats.tsv" width="100%" height="400"></iframe>
+| file_id         | contig_id | features | length   | GC   | class             | plasmid_partitioning_protein | Conjugal_transfer_protein | ... |
+|------------------|-----------|----------|----------|------|-------------------|-----------------------------|---------------------------|-----|
+| GCF_012927355.1 | contig_1  | 1959     | 2013815  | 63.27| chromosome        | 0                           | 0                         | ... |
+| GCF_012927355.1 | contig_2  | 86       | 107079   | 62.06| plasmid           | 0                           | 4                         | ... |
+| GCF_012927355.1 | contig_3  | 36       | 32847    | 64.46| unknown           | 0                           | 0                         | ... |
 
 <div align="center">
   <img src="scripts/results.png" alt="Contig Classification" width="400" height="425">
