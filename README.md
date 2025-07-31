@@ -60,6 +60,10 @@ Usage: ./ChroPlas.sh --help
 ./ChroPlas.sh -i test_data/ -o results/
 ```
 
+### results
+
+<embed src="test_results/GCF_012927355.1.results.pdf" width="800px" height="600px" />
+
 ---
 🧑‍💻 Author: Swapnil Doijad (swapnil.doijad@gmail.com)  
 🙋 Support If you encounter bugs or have feature requests, please open an issue.

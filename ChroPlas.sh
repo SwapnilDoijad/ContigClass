@@ -35,6 +35,7 @@ fi
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_folder/tmp"
+mkdir -p "$output_folder/stats"
 
 source $chroPlas_dir/chroPlas_env/bin/activate
 # Process gffs in the input folder
@@ -57,8 +58,16 @@ for gff in $(ls $input_folder/); do
 	python $chroPlas_dir/scripts/combine_outputs.py \
 	-d "$output_folder/tmp" \
 	-f "$gff_id" \
-	-o "$output_folder/$gff_id.combined_stats.tsv"
+	-o "$output_folder/stats/$gff_id.combined_stats.tsv"
+
+  sed -i 's/ /_/g' "$output_folder/stats/$gff_id.combined_stats.tsv"
+
+  python $chroPlas_dir/scripts/plot.py \
+  -i "$output_folder/stats/$gff_id.combined_stats.tsv" \
+  -o "$output_folder/$gff_id.results.pdf"
 
 done
 deactivate
+
+
 

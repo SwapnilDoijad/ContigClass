@@ -36,6 +36,11 @@ def combine_outputs(directory, file_id, output_file):
     keys_df = pd.read_csv(keys_path, sep='\t')
 
     def classify_contig(row):
+        # Define priority order for classification
+        priority_order = ['chromosome', 'chromosomal_contig', 'plasmid', 'megaplasmid', 'chromid']
+
+        classifications = []
+
         for _, key_row in keys_df.iterrows():
             min_size = key_row['min_size(Mb)'] * 1e6
             max_size = key_row['max_size(Mb)'] * 1e6
@@ -50,10 +55,19 @@ def combine_outputs(directory, file_id, output_file):
             # Check presence and absence of genes
             if (not must_present or any(row.get(gene.strip(), 0) > 0 for gene in must_present)) and \
                (not must_absent or all(row.get(gene.strip(), 0) == 0 for gene in must_absent)):
-                print(f"Contig {row['contig_id']} classified as {key_row['class']} based on rule: MinSize={min_size}, MaxSize={max_size}, MustPresent={must_present}, MustAbsent={must_absent}")
-                return key_row['class']
+                classifications.append(key_row['class'])
 
-        print(f"Contig {row['contig_id']} classified as unknown: Did not meet any classification rules")
+        # Handle overlapping classifications
+        if 'megaplasmid' in classifications and 'chromid' in classifications:
+            # print(f"Contig {row['contig_id']} classified as megaplasmid/chromid based on shared genes")
+            return 'megaplasmid/chromid'
+
+        if classifications:
+            classification = classifications[0]  # Take the first matching classification based on priority
+            # print(f"Contig {row['contig_id']} classified as {classification} based on rules")
+            return classification
+
+        # print(f"Contig {row['contig_id']} classified as unknown: Did not meet any classification rules")
         return 'unknown'
 
     combined_df['class'] = combined_df.apply(classify_contig, axis=1)
@@ -63,6 +77,25 @@ def combine_outputs(directory, file_id, output_file):
     gc_index = columns.index('GC')
     columns.insert(gc_index + 1, columns.pop(columns.index('class')))
     combined_df = combined_df[columns]
+
+    # Dynamically determine gene order from key_genes_must_present and key_genes_must_absent in keys.tsv
+    gene_order = []
+    for _, row in keys_df.iterrows():
+        if pd.notna(row['key_genes_must_present']):
+            gene_order.extend([gene.strip() for gene in row['key_genes_must_present'].split(',')])
+        if pd.notna(row['key_genes_must_absent']):
+            gene_order.extend([gene.strip() for gene in row['key_genes_must_absent'].split(',')])
+
+    # Remove duplicates while preserving order
+    gene_order = list(dict.fromkeys(gene_order))
+
+    gene_columns = [col for col in gene_order if col in combined_df.columns]
+    other_columns = [col for col in combined_df.columns if col not in gene_columns]
+    combined_df = combined_df[other_columns + gene_columns]
+
+    # Debugging: Print the dynamically determined gene order and columns in the dataframe
+    # print("Gene order from keys.tsv:", gene_order)
+    # print("Columns in combined_df before reordering:", combined_df.columns.tolist())
 
     # Write the combined dataframe to the output file
     combined_df.to_csv(output_file, sep='\t', index=False)

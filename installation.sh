@@ -5,5 +5,9 @@
 	pip install --upgrade pip
 	pip install biopython
 	pip install pandas
-
-
+	pip install matplotlib
+	pip install fpdf
+	pip install reportlab
+	pip install PyPDF2
+	pip install pdf2image pillow
+	pip install svglib reportlab

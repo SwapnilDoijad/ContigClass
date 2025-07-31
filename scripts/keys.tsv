@@ -1,6 +1,6 @@
 class	min_size(Mb)	max_size(Mb)	key_genes_must_present	key_genes_must_absent
-chromid	0.35	2		Conjugal transfer protein,ribosomal RNA
-chromosome	2	10	chromosomal replication initiator protein,ribosomal RNA,DNA-directed RNA polymerase subunit beta	
-chromosomal_contig	0	2	chromosomal replication initiator protein,ribosomal RNA	
-plasmid	0	0.35	partitioning protein,Conjugal transfer protein	
-megaplasmid	0.35	2	partitioning protein,Conjugal transfer protein	
+plasmid	0	0.35	plasmid partitioning protein,Conjugal transfer protein,conjugative transfer,plasmid replication protein
+megaplasmid	0.35	2	plasmid partitioning protein,Conjugal transfer proteinm,plasmid replication protein	
+chromid	0.35	2	DNA-directed RNA polymerase subunit beta,recombinase RecA,DNA topoisomerase	Conjugal transfer protein,ribosomal RNA,chromosomal replication initiator protein
+chromosomal_contig	0	0.35	chromosomal replication initiator protein,ribosomal RNA,DNA-directed RNA polymerase subunit beta,recombinase RecA,DNA topoisomerase
+chromosome	2	10	chromosomal replication initiator protein,ribosomal RNA,DNA-directed RNA polymerase subunit beta,recombinase RecA,DNA topoisomerase
