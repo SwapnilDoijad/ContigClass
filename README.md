@@ -60,9 +60,9 @@ Usage: ./ChroPlas.sh --help
 ./ChroPlas.sh -i test_data/ -o results/
 ```
 
-### results
+### Results
 
-<embed src="test_results/GCF_012927355.1.results.pdf" width="800px" height="600px" />
+<embed src="test_results/N161.results.pdf" width="800px" height="600px" />
 
 ---
 🧑‍💻 Author: Swapnil Doijad (swapnil.doijad@gmail.com)  
