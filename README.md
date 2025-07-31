@@ -63,7 +63,7 @@ Usage: ./ChroPlas.sh --help
 ### Results
 After running the script, you will find the following files in the specified output folder:
 
-$output-folder/stats/$gff_id.combined_stats.tsv
+$output-folder/stats/$gff_id.combined_stats.tsv  
 $output-folder/$gff_id.results.pdf
 
 example output: test_results/stats/Y2_17.combined_stats.tsv
