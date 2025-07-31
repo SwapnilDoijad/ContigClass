@@ -62,6 +62,8 @@ Usage: ./ChroPlas.sh --help
 ---
 ### Results
 
+$output-folder/stats/$gff_id.combined_stats.tsv
+
 | file_id | contig_id | features | length   | GC    | class                  | plasmid_partitioning_protein | Conjugal_transfer_protein | conjugative_transfer | plasmid_replication_protein | DNA-directed_RNA_polymerase_subunit_beta | recombinase_RecA | DNA_topoisomerase | ribosomal_RNA | chromosomal_replication_initiator_protein |
 |---------|-----------|----------|----------|-------|------------------------|------------------------------|---------------------------|----------------------|-----------------------------|------------------------------------------|------------------|-------------------|---------------|------------------------------------------|
 | Y2_17   | contig_1  | 4316     | 4377227  | 61.73 | chromosome             | 0                            | 0                         | 0                    | 0                           | 6                                        | 3                | 12                | 4             | 2                                        |
@@ -69,6 +71,8 @@ Usage: ./ChroPlas.sh --help
 | Y2_17   | contig_3  | 397      | 416676   | 62.3  | megaplasmid/chromid    | 4                            | 0                         | 0                    | 2                           | 0                                        | 0                | 3                 | 0             | 0                                        |
 | Y2_17   | contig_4  | 396      | 422909   | 57.56 | megaplasmid            | 4                            | 3                         | 3                    | 2                           | 0                                        | 0                | 0                 | 0             | 0                                        |
 | Y2_17   | contig_5  | 1067     | 1138694  | 60.78 | megaplasmid            | 8                            | 0                         | 0                    | 4                           | 0                                        | 0                | 0                 | 0             | 0                                        |
+
+$output-folder/$gff_id.results.pdf
 
 <div align="center">
   <img src="scripts/results.png" alt="Contig Classification" width="400" height="425">
