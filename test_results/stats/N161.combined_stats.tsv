@@ -1,6 +1,0 @@
-file_id	contig_id	features	length	GC	class	plasmid_partitioning_protein	Conjugal_transfer_protein	conjugative_transfer	plasmid_replication_protein	DNA-directed_RNA_polymerase_subunit_beta	recombinase_RecA	DNA_topoisomerase	ribosomal_RNA	chromosomal_replication_initiator_protein
-N161	contig_1	4458	4514436	61.61	chromosome	4	0	0	0	6	3	12	18	2
-N161	contig_2	345	354689	61.8	megaplasmid	4	0	0	2	0	0	0	0	0
-N161	contig_3	358	395855	57.96	megaplasmid	4	3	3	2	0	0	0	0	0
-N161	contig_4	382	407297	62.35	megaplasmid/chromid	4	0	0	2	0	0	3	0	0
-N161	contig_5	978	1048055	61.2	megaplasmid	8	2	3	4	0	0	0	0	0
