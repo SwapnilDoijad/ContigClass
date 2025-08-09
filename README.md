@@ -7,7 +7,7 @@ ContigClass makes use of length of contigs and key annotations and classifies co
 
 Note: the current version classify transposons, translocatable units, and other elements as "unknown". I plan to add support for these categories in future versions.
 
-**Definition of classes** (based on [The Divided Bacterial Genome: Structure, Function, and Evolution](https://journals.asm.org/doi/10.1128/mmbr.00019-17))
+**Definition of classes** are based on [The Divided Bacterial Genome: Structure, Function, and Evolution](https://journals.asm.org/doi/10.1128/mmbr.00019-17)
 
 <div align="center">
   <img src="scripts/flowchart.png" alt="Contig Classification Flowchart" width="700" height="600">
